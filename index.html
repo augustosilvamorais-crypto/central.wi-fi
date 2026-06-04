@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Central Administrativa de Rede - Exemplo (Produção)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Central Administrativa de Rede (Exemplo)</h1>
+  </header>
+
+  <main id="app">
+    <!-- Sessão de login (acesso inicial) -->
+    <section id="loginSection" class="card">
+      <h2>Autenticação</h2>
+      <form id="loginForm" autocomplete="off">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" placeholder="usuário" required />
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="senha" required />
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="hint">
+        Observação: este é um exemplo educativo. Em produção use autenticação segura com back-end (JWT, MFA, TLS).
+      </p>
+    </section>
+
+    <!-- Dashboard (após login) -->
+    <section id="dashboard" class="card" hidden>
+      <div class="dashboard-header">
+        <h2>Central Administrativa</h2>
+        <button id="logoutBtn" class="btn secondary">Sair</button>
+      </div>
+
+      <table id="networksTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Rede</th>
+            <th>Status</th>
+            <th>Gigas</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="networksBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Modal simples para ajustes (quota/senha) -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-content">
+      <h3 id="modalTitle">Ajuste</h3>
+      <div id="modalBody"></div>
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn secondary">Cancelar</button>
+        <button id="modalConfirm" class="btn primary">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
